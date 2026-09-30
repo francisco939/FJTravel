@@ -1,0 +1,77 @@
+<view class="page">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索景点 / 美食 / 人文"
+             value="{{keyword}}" bindinput="onInput" bindconfirm="onSearch"
+             confirm-type="search" focus="{{true}}" />
+      <text wx:if="{{keyword}}" class="search-clear" bindtap="onClear">✕</text>
+    </view>
+    <view class="search-btn" bindtap="onSearch">搜索</view>
+  </view>
+
+  <!-- 热门关键词 -->
+  <view class="hot" wx:if="{{!searched}}">
+    <view class="hot-title">🔥 热门搜索</view>
+    <view class="hot-chips">
+      <text class="hot-chip" wx:for="{{hots}}" wx:key="*this"
+            bindtap="onHotTap" data-k="{{item}}">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="container" wx:if="{{searched}}">
+    <view wx:if="{{!results || (results.attractions.length + results.foods.length + results.cultures.length === 0)}}"
+          class="empty">
+      没有找到与「{{keyword}}」相关的内容
+    </view>
+
+    <block wx:else>
+      <!-- 景点 -->
+      <view wx:if="{{results.attractions.length}}">
+        <view class="group-title">🏞️ 景点 · {{results.attractions.length}}</view>
+        <view class="list-item" wx:for="{{results.attractions}}" wx:key="id"
+              bindtap="goDetail" data-type="attraction" data-id="{{item.id}}">
+          <view class="avatar avatar-red">
+            <image wx:if="{{item.image}}" class="thumb-img" src="{{item.image}}" mode="aspectFill" />
+            <text wx:else>{{item.emoji}}</text>
+          </view>
+          <view class="item-main">
+            <view class="item-title">{{item.name}}</view>
+            <view class="item-meta">{{item.city}} · {{item.location}}</view>
+          </view>
+          <view class="arrow">›</view>
+        </view>
+      </view>
+
+      <!-- 美食 -->
+      <view wx:if="{{results.foods.length}}">
+        <view class="group-title">🍜 美食 · {{results.foods.length}}</view>
+        <view class="list-item" wx:for="{{results.foods}}" wx:key="id"
+              bindtap="goDetail" data-type="food" data-id="{{item.id}}">
+          <view class="avatar avatar-gold">{{item.emoji}}</view>
+          <view class="item-main">
+            <view class="item-title">{{item.name}}</view>
+            <view class="item-meta">{{item.city}} · {{item.category}}</view>
+          </view>
+          <view class="arrow">›</view>
+        </view>
+      </view>
+
+      <!-- 人文 -->
+      <view wx:if="{{results.cultures.length}}">
+        <view class="group-title">🎭 人文 · {{results.cultures.length}}</view>
+        <view class="list-item" wx:for="{{results.cultures}}" wx:key="id"
+              bindtap="goDetail" data-type="culture" data-id="{{item.id}}">
+          <view class="avatar avatar-purple">{{item.emoji}}</view>
+          <view class="item-main">
+            <view class="item-title">{{item.name}}</view>
+            <view class="item-meta">{{item.city}} · {{item.category}}</view>
+          </view>
+          <view class="arrow">›</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

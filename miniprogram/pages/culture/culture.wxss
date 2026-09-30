@@ -1,0 +1,49 @@
+.page {
+  min-height: 100vh;
+}
+
+.chips {
+  white-space: nowrap;
+  padding: 20rpx 28rpx;
+  position: sticky;
+  top: 0;
+  background: #f6f3ee;
+  z-index: 10;
+}
+
+.chip {
+  display: inline-block;
+  padding: 12rpx 30rpx;
+  margin-right: 16rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
+  color: #666666;
+  font-size: 26rpx;
+  box-shadow: 0 2rpx 10rpx rgba(43, 43, 43, 0.05);
+}
+
+.chip-active {
+  background: linear-gradient(135deg, #a18cd1, #8e6fc1);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.item-meta {
+  font-size: 22rpx;
+  color: #9b9b9b;
+  margin: 6rpx 0;
+}
+
+.item-tags {
+  display: flex;
+}

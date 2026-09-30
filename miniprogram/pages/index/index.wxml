@@ -1,0 +1,106 @@
+<view class="page">
+  <!-- 顶部主视觉 -->
+  <view class="hero" style="padding-top: {{statusBarHeight + 16}}px;">
+    <view class="hero-badge">⛰️ 八闽 · 山海福地 🌊</view>
+    <view class="hero-title">福建旅行</view>
+    <view class="hero-sub">逛景点 · 尝美食 · 品人文 · 订行程</view>
+
+    <!-- 搜索入口 -->
+    <view class="hero-search" bindtap="goPage" data-url="/pages/search/search">
+      <text class="hero-search-icon">🔍</text>
+      <text class="hero-search-placeholder">搜索景点 / 美食 / 人文</text>
+    </view>
+
+    <view class="hero-lucky" bindtap="goLucky">
+      <text class="lucky-emoji">🎲</text>
+      <view class="lucky-text">
+        <view class="lucky-title">今日抽签 · 随机推荐</view>
+        <view class="lucky-desc">不知道去哪？让八闽为你选一个</view>
+      </view>
+      <text class="arrow arrow-light">›</text>
+    </view>
+  </view>
+
+  <view class="container">
+    <!-- 数据统计 -->
+    <view class="stats">
+      <view class="stat">
+        <view class="stat-num">{{stats.attractions}}</view>
+        <view class="stat-label">景点</view>
+      </view>
+      <view class="stat">
+        <view class="stat-num">{{stats.foods}}</view>
+        <view class="stat-label">美食</view>
+      </view>
+      <view class="stat">
+        <view class="stat-num">{{stats.cultures}}</view>
+        <view class="stat-label">人文</view>
+      </view>
+      <view class="stat">
+        <view class="stat-num">{{stats.cities}}</view>
+        <view class="stat-label">城市</view>
+      </view>
+    </view>
+
+    <!-- 分类入口 -->
+    <view class="grid">
+      <view class="grid-item grid-red" bindtap="goTab" data-url="/pages/attractions/attractions">
+        <view class="grid-emoji">🏞️</view>
+        <view class="grid-name">景点</view>
+        <view class="grid-desc">山海风光</view>
+      </view>
+      <view class="grid-item grid-gold" bindtap="goTab" data-url="/pages/food/food">
+        <view class="grid-emoji">🍜</view>
+        <view class="grid-name">美食</view>
+        <view class="grid-desc">闽味珍馐</view>
+      </view>
+      <view class="grid-item grid-purple" bindtap="goTab" data-url="/pages/culture/culture">
+        <view class="grid-emoji">🎭</view>
+        <view class="grid-name">人文</view>
+        <view class="grid-desc">非遗民俗</view>
+      </view>
+      <view class="grid-item grid-teal" bindtap="goTab" data-url="/pages/plan/plan">
+        <view class="grid-emoji">🗺️</view>
+        <view class="grid-name">行程</view>
+        <view class="grid-desc">一键规划</view>
+      </view>
+    </view>
+
+    <!-- 精选景点 -->
+    <view class="section-title">🏞️ 精选景点</view>
+    <view class="section-sub">口碑最高的八闽山水</view>
+    <scroll-view scroll-x class="hscroll" enable-flex show-scrollbar="{{false}}">
+      <view class="fcard" wx:for="{{featured_attractions}}" wx:key="id"
+            bindtap="goDetail" data-type="attraction" data-id="{{item.id}}">
+        <image wx:if="{{item.image}}" class="fcard-img" src="{{item.image}}" mode="aspectFill" />
+        <view wx:else class="fcard-emoji">{{item.emoji}}</view>
+        <view class="fcard-name">{{item.name}}</view>
+        <view class="fcard-sub">{{item.city}} · ⭐{{item.rating}}</view>
+      </view>
+    </scroll-view>
+
+    <!-- 精选美食 -->
+    <view class="section-title">🍜 精选美食</view>
+    <view class="section-sub">舌尖上的八闽味道</view>
+    <scroll-view scroll-x class="hscroll" enable-flex show-scrollbar="{{false}}">
+      <view class="fcard" wx:for="{{featured_foods}}" wx:key="id"
+            bindtap="goDetail" data-type="food" data-id="{{item.id}}">
+        <view class="fcard-emoji">{{item.emoji}}</view>
+        <view class="fcard-name">{{item.name}}</view>
+        <view class="fcard-sub">{{item.city}} · {{item.category}}</view>
+      </view>
+    </scroll-view>
+
+    <!-- 精选人文 -->
+    <view class="section-title">🎭 特色人文</view>
+    <view class="section-sub">读懂福建的文化密码</view>
+    <scroll-view scroll-x class="hscroll" enable-flex show-scrollbar="{{false}}">
+      <view class="fcard" wx:for="{{featured_cultures}}" wx:key="id"
+            bindtap="goDetail" data-type="culture" data-id="{{item.id}}">
+        <view class="fcard-emoji">{{item.emoji}}</view>
+        <view class="fcard-name">{{item.name}}</view>
+        <view class="fcard-sub">{{item.city}} · {{item.category}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

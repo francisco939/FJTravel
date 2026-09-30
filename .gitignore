@@ -1,0 +1,29 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ---------- 微信小程序 / 开发者工具 ----------
+node_modules/
+miniprogram_npm/
+project.private.config.json
+
+# ---------- 编辑器 ----------
+.vscode/
+.idea/
+*.swp
+
+# ---------- 系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- 本地个人设置（Claude Code 权限配置） ----------
+.claude/settings.local.json

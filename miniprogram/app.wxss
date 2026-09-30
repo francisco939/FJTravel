@@ -1,0 +1,145 @@
+/**app.wxss 全局样式 —— 八闽风情的暖色调主题**/
+
+page {
+  background: #f6f3ee;
+  color: #2b2b2b;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+/* ---------- 布局工具 ---------- */
+.container {
+  padding: 24rpx 28rpx 40rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------- 卡片 ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  box-shadow: 0 6rpx 24rpx rgba(43, 43, 43, 0.06);
+  margin-bottom: 24rpx;
+}
+
+/* ---------- 标题 ---------- */
+.section-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin: 8rpx 0 20rpx;
+}
+
+.section-sub {
+  font-size: 24rpx;
+  color: #9b9b9b;
+  margin-top: -12rpx;
+  margin-bottom: 20rpx;
+}
+
+/* ---------- 标签 ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  background: #fff0ee;
+  color: #ff5e62;
+  margin-right: 12rpx;
+  margin-bottom: 8rpx;
+}
+
+.tag-teal {
+  background: #e7f4f4;
+  color: #0e7c86;
+}
+
+.tag-gold {
+  background: #fdf3e3;
+  color: #d98a1f;
+}
+
+/* ---------- 品牌主按钮 ---------- */
+.btn-primary {
+  background: linear-gradient(135deg, #ff8a5c, #ff5e62);
+  color: #ffffff;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  padding: 22rpx 0;
+  text-align: center;
+  box-shadow: 0 10rpx 24rpx rgba(255, 94, 98, 0.3);
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+/* ---------- 空状态 / 加载 ---------- */
+.empty {
+  text-align: center;
+  color: #9b9b9b;
+  padding: 120rpx 0;
+  font-size: 26rpx;
+}
+
+.loading {
+  text-align: center;
+  color: #9b9b9b;
+  padding: 60rpx 0;
+}
+
+/* ---------- 列表卡片通用 ---------- */
+.list-item {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(43, 43, 43, 0.05);
+}
+
+.avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52rpx;
+  margin-right: 22rpx;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.thumb-img {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-red   { background: #fff0ee; }
+.avatar-teal  { background: #e7f4f4; }
+.avatar-gold  { background: #fdf3e3; }
+.avatar-green { background: #e9f5ec; }
+.avatar-blue  { background: #e9f1fb; }
+.avatar-purple{ background: #f3edfb; }
+
+.arrow {
+  color: #c9c9c9;
+  font-size: 32rpx;
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}

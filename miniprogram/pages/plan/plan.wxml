@@ -1,0 +1,43 @@
+<view class="page">
+  <!-- 天数选择 -->
+  <view class="selector">
+    <view class="seg {{days === item.v ? 'seg-active' : ''}}"
+          wx:for="{{daysOptions}}" wx:key="v"
+          bindtap="onDaysTap" data-days="{{item.v}}">{{item.label}}</view>
+  </view>
+
+  <view class="container">
+    <view wx:if="{{loading}}" class="loading">规划中…</view>
+
+    <block wx:elif="{{plan}}">
+      <!-- 行程标题 -->
+      <view class="plan-head">
+        <view class="plan-title">{{plan.title}}</view>
+        <view class="plan-sub">{{plan.subtitle}}</view>
+      </view>
+
+      <!-- 每日行程时间线 -->
+      <view class="day-card" wx:for="{{plan.days}}" wx:key="day">
+        <view class="day-side">
+          <view class="day-badge">D{{item.day}}</view>
+          <view class="day-line"></view>
+        </view>
+        <view class="day-body">
+          <view class="day-title">{{item.title}}</view>
+
+          <view class="day-section-label">🏞️ 景点</view>
+          <view class="spot-chips">
+            <text class="spot-chip" wx:for="{{item.spots}}" wx:for-item="s" wx:key="*this">{{s}}</text>
+          </view>
+
+          <view class="day-section-label">🍜 美食</view>
+          <view class="spot-chips">
+            <text class="food-chip" wx:for="{{item.foods}}" wx:for-item="f" wx:key="*this">{{f}}</text>
+          </view>
+
+          <view class="day-tip">💡 {{item.tip}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

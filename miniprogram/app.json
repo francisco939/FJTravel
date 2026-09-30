@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/attractions/attractions",
+    "pages/food/food",
+    "pages/culture/culture",
+    "pages/plan/plan",
+    "pages/lucky/lucky",
+    "pages/detail/detail",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "福建旅行",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f3ee"
+  },
+  "tabBar": {
+    "color": "#9b9b9b",
+    "selectedColor": "#ff5e62",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/attractions/attractions", "text": "景点" },
+      { "pagePath": "pages/food/food", "text": "美食" },
+      { "pagePath": "pages/culture/culture", "text": "人文" },
+      { "pagePath": "pages/plan/plan", "text": "行程" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

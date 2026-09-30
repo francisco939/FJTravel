@@ -1,0 +1,29 @@
+<view class="page">
+  <scroll-view scroll-x class="chips" show-scrollbar="{{false}}">
+    <view class="chip {{activeCity === '' ? 'chip-active' : ''}}"
+          bindtap="onCityTap" data-city="">全部</view>
+    <view class="chip {{activeCity === item ? 'chip-active' : ''}}"
+          wx:for="{{cities}}" wx:key="*this" bindtap="onCityTap" data-city="{{item}}">
+      {{item}}
+    </view>
+  </scroll-view>
+
+  <view class="container">
+    <view wx:if="{{loading}}" class="loading">加载中…</view>
+    <view wx:elif="{{list.length === 0}}" class="empty">暂无该地区的美食</view>
+    <block wx:else>
+      <view class="list-item" wx:for="{{list}}" wx:key="id"
+            bindtap="onItemTap" data-id="{{item.id}}">
+        <view class="avatar {{item.avatar}}">{{item.emoji}}</view>
+        <view class="item-main">
+          <view class="item-title">{{item.name}}</view>
+          <view class="item-meta">{{item.city}}</view>
+          <view class="item-tags">
+            <text class="tag tag-gold">{{item.category}}</text>
+          </view>
+        </view>
+        <view class="arrow">›</view>
+      </view>
+    </block>
+  </view>
+</view>

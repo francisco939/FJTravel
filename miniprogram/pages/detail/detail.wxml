@@ -1,0 +1,42 @@
+<view class="page">
+  <view wx:if="{{loading && !item}}" class="loading">加载中…</view>
+
+  <block wx:elif="{{item}}">
+    <!-- 头部 -->
+    <view class="detail-hero">
+      <image wx:if="{{item.image}}" class="detail-img" src="{{item.image}}" mode="aspectFill" />
+      <view wx:else class="detail-emoji">{{item.emoji}}</view>
+      <view class="detail-name">{{item.name}}</view>
+      <view class="detail-sub">
+        <block wx:if="{{type === 'attraction'}}">📍 {{item.location}}</block>
+        <block wx:else>{{item.city}} · {{item.category}}</block>
+      </view>
+      <view wx:if="{{type === 'attraction'}}" class="detail-rate">⭐ {{item.rating}} 分</view>
+    </view>
+
+    <view class="container">
+      <!-- 标签 -->
+      <view class="card" wx:if="{{type === 'attraction'}}">
+        <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+
+      <!-- 简介 -->
+      <view class="card">
+        <view class="d-title">📖 简介</view>
+        <view class="d-text">{{type === 'attraction' ? item.intro : item.desc}}</view>
+      </view>
+
+      <!-- 亮点 -->
+      <view class="card" wx:if="{{type === 'attraction' && item.highlights.length}}">
+        <view class="d-title">✨ 亮点</view>
+        <view class="d-highlights">
+          <view class="d-hl" wx:for="{{item.highlights}}" wx:key="*this">
+            <text class="d-hl-dot">•</text>{{item}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view wx:else class="empty">未找到相关内容</view>
+</view>

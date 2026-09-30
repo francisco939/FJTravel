@@ -1,0 +1,133 @@
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* 天数选择 */
+.selector {
+  display: flex;
+  padding: 24rpx 28rpx;
+}
+
+.seg {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  margin: 0 10rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
+  color: #666666;
+  font-size: 28rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 14rpx rgba(43, 43, 43, 0.05);
+}
+
+.seg-active {
+  background: linear-gradient(135deg, #0e8a8a, #0e7c86);
+  color: #ffffff;
+  box-shadow: 0 10rpx 22rpx rgba(14, 124, 134, 0.3);
+}
+
+/* 行程头 */
+.plan-head {
+  padding: 10rpx 8rpx 24rpx;
+}
+
+.plan-title {
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.plan-sub {
+  font-size: 24rpx;
+  color: #9b9b9b;
+  margin-top: 6rpx;
+}
+
+/* 每日卡片 */
+.day-card {
+  display: flex;
+  margin-bottom: 24rpx;
+}
+
+.day-side {
+  width: 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.day-badge {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff8a5c, #ff5e62);
+  color: #ffffff;
+  font-size: 26rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.day-line {
+  flex: 1;
+  width: 4rpx;
+  background: #ffe0dc;
+  margin-top: 8rpx;
+}
+
+.day-body {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 26rpx 28rpx;
+  margin-left: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(43, 43, 43, 0.05);
+}
+
+.day-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.day-section-label {
+  font-size: 24rpx;
+  color: #9b9b9b;
+  margin: 12rpx 0 8rpx;
+}
+
+.spot-chips {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.spot-chip {
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+  background: #fff0ee;
+  color: #ff5e62;
+  font-size: 24rpx;
+  margin: 0 12rpx 12rpx 0;
+}
+
+.food-chip {
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+  background: #fdf3e3;
+  color: #d98a1f;
+  font-size: 24rpx;
+  margin: 0 12rpx 12rpx 0;
+}
+
+.day-tip {
+  margin-top: 8rpx;
+  padding: 16rpx 20rpx;
+  background: #f6f3ee;
+  border-radius: 16rpx;
+  font-size: 24rpx;
+  color: #666666;
+}

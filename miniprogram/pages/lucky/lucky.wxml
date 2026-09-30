@@ -1,0 +1,45 @@
+<view class="page">
+  <!-- 抽签区 -->
+  <view class="lucky-hero">
+    <view class="dice {{shaking ? 'dice-shake' : ''}}">🎲</view>
+    <view class="lucky-hint">{{shaking ? '八闽正在为你挑选…' : '点击下方按钮，抽取今日推荐'}}</view>
+    <view class="draw-btn {{shaking ? 'draw-disabled' : ''}}" bindtap="draw">
+      {{shaking ? '抽取中…' : (result ? '再抽一次' : '开始抽签')}}
+    </view>
+  </view>
+
+  <!-- 结果 -->
+  <view class="container" wx:if="{{result}}">
+    <view class="result-title">✨ 今日推荐</view>
+
+    <view class="res-card" bindtap="goDetail" data-type="attraction" data-id="{{result.attraction.id}}">
+      <view class="res-avatar avatar-red">
+        <image wx:if="{{result.attraction.image}}" class="thumb-img" src="{{result.attraction.image}}" mode="aspectFill" />
+        <text wx:else>{{result.attraction.emoji}}</text>
+      </view>
+      <view class="res-main">
+        <view class="res-label">🏞️ 去这里 · {{result.attraction.city}}</view>
+        <view class="res-name">{{result.attraction.name}}</view>
+        <view class="res-desc">{{result.attraction.intro}}</view>
+      </view>
+    </view>
+
+    <view class="res-card" bindtap="goDetail" data-type="food" data-id="{{result.food.id}}">
+      <view class="res-avatar avatar-gold">{{result.food.emoji}}</view>
+      <view class="res-main">
+        <view class="res-label">🍜 吃这个 · {{result.food.city}}</view>
+        <view class="res-name">{{result.food.name}}</view>
+        <view class="res-desc">{{result.food.desc}}</view>
+      </view>
+    </view>
+
+    <view class="res-card" bindtap="goDetail" data-type="culture" data-id="{{result.culture.id}}">
+      <view class="res-avatar avatar-purple">{{result.culture.emoji}}</view>
+      <view class="res-main">
+        <view class="res-label">🎭 品这个 · {{result.culture.city}}</view>
+        <view class="res-name">{{result.culture.name}}</view>
+        <view class="res-desc">{{result.culture.desc}}</view>
+      </view>
+    </view>
+  </view>
+</view>
